@@ -11,96 +11,166 @@ const games = [
   'Gem Slots','Ace','Juwa 2.0'
 ]
 
+const s = {
+  page: {
+    minHeight:'100vh', background:'#0a0010',
+    color:'#fff', fontFamily:'-apple-system,BlinkMacSystemFont,sans-serif',
+    margin:0, padding:0,
+  },
+  nav: {
+    display:'flex', alignItems:'center', justifyContent:'space-between',
+    padding:'16px 32px', borderBottom:'1px solid rgba(255,255,255,0.1)',
+    background:'rgba(255,255,255,0.03)',
+  },
+  logo: { fontSize:22, fontWeight:800, color:'#fff' },
+  logoAccent: { color:'#a855f7' },
+  navLinks: { display:'flex', gap:12, alignItems:'center' },
+  loginBtn: {
+    padding:'8px 20px', color:'rgba(255,255,255,0.7)',
+    textDecoration:'none', borderRadius:10, fontSize:14,
+    border:'1px solid rgba(255,255,255,0.15)',
+  },
+  joinBtn: {
+    padding:'8px 20px', background:'#9333ea', color:'#fff',
+    textDecoration:'none', borderRadius:10, fontSize:14, fontWeight:700,
+  },
+  hero: {
+    textAlign:'center', padding:'80px 24px 60px',
+    background:'radial-gradient(ellipse at 50% 0%, rgba(147,51,234,0.25) 0%, transparent 60%)',
+  },
+  badge: {
+    display:'inline-block', background:'rgba(251,191,36,0.15)',
+    color:'#fbbf24', fontSize:13, fontWeight:600,
+    padding:'5px 16px', borderRadius:99, marginBottom:24,
+    border:'1px solid rgba(251,191,36,0.3)',
+  },
+  h1: { fontSize:62, fontWeight:900, lineHeight:1.1, margin:'0 0 20px' },
+  h1accent: {
+    background:'linear-gradient(90deg,#a855f7,#fbbf24)',
+    WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent',
+  },
+  subtext: {
+    color:'rgba(255,255,255,0.55)', fontSize:18,
+    maxWidth:500, margin:'0 auto 40px', lineHeight:1.6,
+  },
+  heroBtns: { display:'flex', gap:16, justifyContent:'center', flexWrap:'wrap' },
+  btnPrimary: {
+    padding:'14px 36px', background:'#9333ea', color:'#fff',
+    textDecoration:'none', borderRadius:14, fontWeight:700,
+    fontSize:16, border:'none', cursor:'pointer',
+  },
+  btnSecondary: {
+    padding:'14px 36px', background:'rgba(255,255,255,0.08)',
+    color:'#fff', textDecoration:'none', borderRadius:14,
+    fontWeight:700, fontSize:16,
+    border:'1px solid rgba(255,255,255,0.15)',
+  },
+  section: { padding:'60px 24px', maxWidth:960, margin:'0 auto' },
+  h2: { fontSize:32, fontWeight:800, textAlign:'center', marginBottom:48 },
+  stepsGrid: {
+    display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(240px,1fr))',
+    gap:20,
+  },
+  stepCard: {
+    background:'rgba(255,255,255,0.04)',
+    border:'1px solid rgba(255,255,255,0.1)',
+    borderRadius:20, padding:28, textAlign:'center',
+  },
+  stepNum: {
+    width:48, height:48, background:'#9333ea', borderRadius:'50%',
+    display:'flex', alignItems:'center', justifyContent:'center',
+    fontWeight:900, fontSize:20, margin:'0 auto 16px',
+  },
+  stepTitle: { fontSize:20, fontWeight:700, marginBottom:8 },
+  stepDesc: { color:'rgba(255,255,255,0.5)', fontSize:14, lineHeight:1.6 },
+  gamesWrap: { display:'flex', flexWrap:'wrap', gap:10, justifyContent:'center' },
+  gameChip: {
+    padding:'8px 16px', background:'rgba(255,255,255,0.05)',
+    border:'1px solid rgba(255,255,255,0.12)',
+    borderRadius:12, fontSize:13, color:'rgba(255,255,255,0.8)',
+  },
+  footer: {
+    borderTop:'1px solid rgba(255,255,255,0.08)',
+    padding:'32px 24px', textAlign:'center',
+    color:'rgba(255,255,255,0.25)', fontSize:13,
+  },
+}
+
 export default function Home() {
   return (
     <>
       <Head>
         <title>Casinoze Room — Play & Win</title>
-        <meta name="description" content="Join Casinoze Room. Deposit, play, and win across 27+ game panels." />
-        <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      <main className="min-h-screen bg-[#0a0010]">
+      <div style={s.page}>
 
         {/* Nav */}
-        <nav className="flex items-center justify-between px-6 py-4 border-b border-white/10">
-          <div className="text-2xl font-bold text-white">
-            🎰 <span className="text-purple-400">Casinoze</span> Room
+        <nav style={s.nav}>
+          <div style={s.logo}>
+            🎰 <span style={s.logoAccent}>Casinoze</span> Room
           </div>
-          <div className="flex gap-3">
-            <Link href="/login" className="px-4 py-2 text-white/70 hover:text-white transition">
-              Login
-            </Link>
-            <Link href="/register" className="px-5 py-2 bg-purple-600 hover:bg-purple-500 text-white rounded-xl font-semibold transition">
-              Join Now
-            </Link>
+          <div style={s.navLinks}>
+            <Link href="/login" style={s.loginBtn}>Login</Link>
+            <Link href="/register" style={s.joinBtn}>Join Now</Link>
           </div>
         </nav>
 
         {/* Hero */}
-        <section className="text-center px-6 py-20">
-          <div className="inline-block bg-amber-500/20 text-amber-400 text-sm font-semibold px-4 py-1 rounded-full mb-6">
-            27+ Game Panels · Instant Credits · 24/7
-          </div>
-          <h1 className="text-5xl md:text-7xl font-black text-white mb-6 leading-tight">
+        <section style={s.hero}>
+          <div style={s.badge}>27+ Game Panels · Instant Credits · 24/7</div>
+          <h1 style={s.h1}>
             Play More.<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-amber-400">
-              Win Bigger.
-            </span>
+            <span style={s.h1accent}>Win Bigger.</span>
           </h1>
-          <p className="text-white/60 text-lg mb-10 max-w-xl mx-auto">
+          <p style={s.subtext}>
             Deposit once, play across all your favorite game rooms.
             Credits added automatically after approval.
           </p>
-          <div className="flex gap-4 justify-center flex-wrap">
-            <Link href="/register" className="px-8 py-4 bg-purple-600 hover:bg-purple-500 text-white rounded-2xl font-bold text-lg transition">
-              Create Free Account
-            </Link>
-            <Link href="/login" className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white rounded-2xl font-bold text-lg transition">
-              Login
-            </Link>
+          <div style={s.heroBtns}>
+            <Link href="/register" style={s.btnPrimary}>Create Free Account</Link>
+            <Link href="/login" style={s.btnSecondary}>Login</Link>
           </div>
         </section>
 
         {/* How it works */}
-        <section className="px-6 py-16 max-w-5xl mx-auto">
-          <h2 className="text-3xl font-bold text-white text-center mb-12">How it works</h2>
-          <div className="grid md:grid-cols-3 gap-6">
+        <section style={s.section}>
+          <h2 style={s.h2}>How it works</h2>
+          <div style={s.stepsGrid}>
             {[
-              { step:'1', title:'Register', desc:'Create your free account in 60 seconds.' },
-              { step:'2', title:'Deposit', desc:'Upload your payment screenshot. We approve fast.' },
-              { step:'3', title:'Play', desc:'Credits appear in your game automatically.' },
-            ].map(s => (
-              <div key={s.step} className="bg-white/5 border border-white/10 rounded-2xl p-6 text-center">
-                <div className="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-white font-black text-xl mx-auto mb-4">
-                  {s.step}
-                </div>
-                <h3 className="text-white font-bold text-xl mb-2">{s.title}</h3>
-                <p className="text-white/50">{s.desc}</p>
+              {step:'1',title:'Register',desc:'Create your free account in 60 seconds.'},
+              {step:'2',title:'Deposit',desc:'Upload your payment screenshot. We approve fast.'},
+              {step:'3',title:'Play',desc:'Credits appear in your game automatically.'},
+            ].map(item => (
+              <div key={item.step} style={s.stepCard}>
+                <div style={s.stepNum}>{item.step}</div>
+                <div style={s.stepTitle}>{item.title}</div>
+                <p style={s.stepDesc}>{item.desc}</p>
               </div>
             ))}
           </div>
         </section>
 
-        {/* Games */}
-        <section className="px-6 py-16 max-w-5xl mx-auto">
-          <h2 className="text-3xl font-bold text-white text-center mb-4">Available Games</h2>
-          <p className="text-white/50 text-center mb-10">All platforms supported. One account, all games.</p>
-          <div className="flex flex-wrap gap-3 justify-center">
-            {games.map(g => (
-              <span key={g} className="px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-white/80 text-sm hover:border-purple-500 hover:text-white transition">
-                {g}
-              </span>
-            ))}
+        {/* Available Games */}
+        <section style={{...s.section, background:'rgba(255,255,255,0.02)', maxWidth:'100%', borderTop:'1px solid rgba(255,255,255,0.06)'}}>
+          <div style={{maxWidth:960, margin:'0 auto'}}>
+            <h2 style={s.h2}>Available Games</h2>
+            <p style={{...s.subtext, marginBottom:32}}>All platforms supported. One account, all games.</p>
+            <div style={s.gamesWrap}>
+              {games.map(g => (
+                <span key={g} style={s.gameChip}>{g}</span>
+              ))}
+            </div>
           </div>
         </section>
 
         {/* Footer */}
-        <footer className="border-t border-white/10 px-6 py-8 text-center text-white/30 text-sm">
+        <footer style={s.footer}>
           © 2025 Casinoze Room. All rights reserved.
         </footer>
 
-      </main>
+      </div>
     </>
   )
 }
