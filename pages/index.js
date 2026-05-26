@@ -878,5 +878,3 @@ export default function Home(){
     </>
   )
 }
-
-File written: 880 /mnt/user-data/outputs/index.js lines
